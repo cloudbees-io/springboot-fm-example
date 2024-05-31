@@ -14,10 +14,11 @@ public class DemoService {
     public DemoService(Flags flags) {
         this.flags = flags;
     }
+
     public String demo() {
         String demo = "";
         if (flags.showMessage.equals(new RoxFlag(true)))
-            demo = demo + flags.message;
-        return "message is: " + flags.message.getValue();
+            demo = "message is: " + flags.message;
+        return demo + " | fontColor: " + flags.fontColor.getValue() + " | fontSize: " + flags.fontSize.getValue();
     }
 }
