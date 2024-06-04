@@ -16,9 +16,10 @@ public class DemoService {
     }
 
     public String demo() {
-        String demo = "";
+        String demo =  " | fontColor: " + flags.fontColor.getValue() + " | fontSize: " + flags.fontSize.getValue();
         if (flags.showMessage.equals(new RoxFlag(true)))
-            demo = "message is: " + flags.message;
-        return demo + " | fontColor: " + flags.fontColor.getValue() + " | fontSize: " + flags.fontSize.getValue();
+            return "message is: " + flags.message + demo;
+        else
+            return "message is hidden" + demo;
     }
 }
