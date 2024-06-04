@@ -50,6 +50,9 @@ public class DemoController implements InitializingBean {
     }
 
     public void initFlags() {
+        if (environmentKey.equals("<INSERT YOUR SDK KEY HERE>"))
+            throw new RuntimeException("You haven't yet inserted your SDK Key into FeatureFlagsProvider.tsx - the application below will not update until you do so. Please check the README.md for instructions.");
+
         RoxOptions options = new RoxOptions.Builder()
                 .withDisableSignatureVerification(true)
                 .withNetworkConfigurationsOptions(
