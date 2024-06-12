@@ -65,7 +65,7 @@ public class DemoController implements InitializingBean {
                                 pushNotificationsEndpoint
                         )
                 ).build();
-        Rox.register("demo", flags);
+        Rox.register(flags);
         try {
             Rox.setup(environmentKey, options).get();
         } catch (InterruptedException | ExecutionException e) {
