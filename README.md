@@ -11,13 +11,17 @@ Every application using CloudBees Feature Management needs to be configured with
 You can retrieve your SDK Key for a particular Environment by visiting _Feature Management -> Installation_.
 Then, replace the placeholder in `src/main/resources/application.yaml` with your SDK Key:
 
-`rox:
-    key: "<INSERT YOUR SDK KEY HERE>"`
+`
+rox:
+    key: "<INSERT YOUR SDK KEY HERE>"
+`
 
 For example:
 
-`rox:
-    key: "<INSERT YOUR SDK KEY HERE>"`
+`
+rox:
+    key: "9381b2f4-fcf8-4e03-42fe-b6ed15c887a0"
+`
 
 ## Run the application
 
