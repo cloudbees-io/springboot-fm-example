@@ -53,21 +53,9 @@ public class DemoController implements InitializingBean {
         if (environmentKey.equals("<INSERT YOUR SDK KEY HERE>"))
             throw new RuntimeException("You haven't yet inserted your SDK Key into application.yaml - the application below will not update until you do so. Please check the README.md for instructions.");
 
-        RoxOptions options = new RoxOptions.Builder()
-                .withDisableSignatureVerification(true)
-                .withNetworkConfigurationsOptions(
-                        new NetworkConfigurationsOptions(
-                                getConfigApiEndpoint,
-                                getConfigCloudEndpoint,
-                                sendStateApiEndpoint,
-                                sendStateCloudEndpoint,
-                                analyticsEndpoint,
-                                pushNotificationsEndpoint
-                        )
-                ).build();
         Rox.register(flags);
         try {
-            Rox.setup(environmentKey, options).get();
+            Rox.setup(environmentKey).get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }

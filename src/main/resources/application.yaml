@@ -4,10 +4,3 @@ spring:
 
 rox:
   key: "<INSERT YOUR SDK KEY HERE>"
-  options:
-    getConfigApiEndpoint: "https://api.cloudbees.io/device/get_configuration"
-    getConfigCloudEndpoint: "https://rox-conf.cloudbees.io/"
-    sendStateApiEndpoint: "https://api.cloudbees.io/device/update_state_store/"
-    sendStateCloudEndpoint: "https://rox-state.cloudbees.io/"
-    analyticsEndpoint: "https://fm-analytics-preprod.saas-preprod.beescloud.com"
-    pushNotificationsEndpoint: "https://sdk-notification-service.cloudbees.io/sse"
