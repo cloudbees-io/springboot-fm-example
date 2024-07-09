@@ -23,18 +23,6 @@ public class DemoController implements InitializingBean {
 
     @Value("${rox.key:}")
     private String environmentKey;
-    @Value("${rox.options.getConfigApiEndpoint:}")
-    private String getConfigApiEndpoint;
-    @Value("${rox.options.getConfigCloudEndpoint:}")
-    private String getConfigCloudEndpoint;
-    @Value("${rox.options.sendStateApiEndpoint:}")
-    private String sendStateApiEndpoint;
-    @Value("${rox.options.sendStateCloudEndpoint:}")
-    private String sendStateCloudEndpoint;
-    @Value("${rox.options.analyticsEndpoint:}")
-    private String analyticsEndpoint;
-    @Value("${rox.options.pushNotificationsEndpoint:}")
-    private String pushNotificationsEndpoint;
 
     @Autowired
     public DemoController(
@@ -53,9 +41,11 @@ public class DemoController implements InitializingBean {
         if (environmentKey.equals("<INSERT YOUR SDK KEY HERE>"))
             throw new RuntimeException("You haven't yet inserted your SDK Key into application.yaml - the application below will not update until you do so. Please check the README.md for instructions.");
 
+        RoxOptions options = new RoxOptions.Builder()
+                .withDisableSignatureVerification(true).build();
         Rox.register(flags);
         try {
-            Rox.setup(environmentKey).get();
+            Rox.setup(environmentKey, options).get();
         } catch (InterruptedException | ExecutionException e) {
             throw new RuntimeException(e);
         }

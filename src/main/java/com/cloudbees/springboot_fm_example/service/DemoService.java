@@ -18,7 +18,7 @@ public class DemoService {
     public String demo() {
         String demo =  " | fontColor: " + flags.fontColor.getValue() + " | fontSize: " + flags.fontSize.getValue();
         if (flags.showMessage.isEnabled())
-            return "message is: " + flags.message + demo;
+            return "message is: " + flags.message.getValue() + demo;
         else
             return "message is hidden" + demo;
     }
