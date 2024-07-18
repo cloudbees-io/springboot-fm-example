@@ -1,4 +1,4 @@
-= Example React application for CloudBees feature management
+= Example Spring Boot application for CloudBees feature management
 
 Use this example application to integrate with the CloudBees platform and test out feature management.
 After integrating, watch the application display change in response to any updates you make to flag values in the platform.
@@ -22,7 +22,7 @@ To save your SDK key in the example application:
 
 +
 [cols="2a,2a,1a,4a",options="header"]
-.Location of SDK key placeholder in Spring Boot app
+.Location of SDK key placeholder in the Spring Boot app
 |===
 | Example app repository
 | File path
@@ -103,4 +103,5 @@ To update flags in the platform UI:
 
 The updated flag value is soon reflected in the display of the application.
 For more information on setting flag values, refer to the link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/feature-management/configure-feature-flags[flag configuration documentation].
+
 
