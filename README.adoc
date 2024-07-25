@@ -1,4 +1,4 @@
-= Example Spring Boot application for CloudBees feature management
+= Example Spring Boot application for CloudBees platform feature management
 
 Use this example application to integrate with the CloudBees platform and test out feature management.
 After integrating, watch the application display change in response to any updates you make to flag values in the platform.
