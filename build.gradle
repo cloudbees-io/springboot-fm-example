@@ -29,7 +29,7 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 	// Add the SDK (rox) to your application
-	implementation 'io.rollout.rox:rox-java-server:5.0.14'
+	implementation 'io.rollout.rox:rox-java-server:6.0.0'
 }
 
 tasks.named('test') {
