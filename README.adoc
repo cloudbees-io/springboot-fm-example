@@ -1,72 +1,75 @@
-= Example Spring Boot application for CloudBees platform feature management
+= Example Java Spring Boot application for {PRODUCT} feature management
 
-Use this example application to integrate with the CloudBees platform and test out feature management.
-After integrating, watch the application display change in response to any updates you make to flag values in the platform.
+Use this example application to integrate with {PRODUCT} and test feature management. After integrating, observe changes in the application UI as you update flag values in {PRODUCT}.
 
-In the example application, the ROX package is already set up, and feature flags are already coded in.
+In this example, the Rox SDK is already set up, and feature flags are implemented in the code.
 
+== Get started with the Java Spring Boot project
 
-[#add-key]
-== Integrate the example application with the platform
+To get started with the `springboot-fm-example` project, follow these steps:
 
-Your SDK key is a link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/feature-management/learn-about-feature-flags[unique environment identifier].
-The SDK key is displayed in the SDK installation instructions in the platform UI.
-To successfully install the SDK, you must copy the SDK key for that environment into your application at the Rox setup call, save the file, and run the application.
-
-To save your SDK key in the example application:
-
-. Go to *Feature management* > *Installation* in the platform UI.
-. Select an environment (or create a new one).
-. Select the appropriate SDK.
-. Copy the environment-specific SDK key located within the `Rox.setup` call.
-
+. Using Git, clone the link:https://github.com/cloudbees-io/springboot-fm-example[springboot-fm-example] repository to your local machine:
 +
-[cols="2a,2a,1a,4a",options="header"]
-.Location of SDK key placeholder in the Spring Boot app
-|===
-| Example app repository
-| File path
-| Line number
-| Line
-
-| link:https://github.com/cloudbees-io/springboot-fm-example[springboot-fm-example]
-| src/main/resources/application.yaml
-| 6
-| `key: "<YOUR-SDK-KEY>"`
-
-|===
-
-+
-. Replace the example app placeholder (`<YOUR-SDK-KEY>`) with your copied key.
-. Save the file in the repository.
-
-The SDK key is generated for your environment, and copied into the example application.
-To learn more, refer to the SDK installation instructions in the platform UI or in link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/install-sdk/[the documentation].
-
-[#run]
-== Run the application
-
-After saving your SDK key in the example application, run the example application.
-
-Use your preferred package manager and run in the terminal:
-
-[source,bash]
+[source,shell]
 ----
-gradle bootRun
+git clone git@github.com:cloudbees-io/springboot-fm-example.git
 ----
 
-Then go to `http://localhost:8080/api/demo` to display the running application.
+. [[reopen-project]] In your IDE, select menu:File[] and open the cloned repository as a Gradle project.
+You will revisit this project in your IDE later to run the application.
 
-TIP: After you have the example application running, select *TEST INTEGRATION* in Step 5 of the SDK installation in the platform UI to check if your integration is successful.
+. Locate and copy the SDK key:
+.. Navigate to menu:Feature management[Flags].
+.. Select an application.
+.. Select image:ROOT:icon-copy-dark.png[COPY] next to the SDK key on the page.
++
+[NOTE]
+====
+If no SDK key is available:
 
-== Use the platform to update flag values
+. Navigate to menu:Feature management[Flags].
+. Select image:ROOT:installinstructions.png[install,100] in the upper-right corner.
+. Follow the installation instructions to complete the installation. The SDK key will appear once an application is linked to an environment.
+. Close the installation instructions, and copy the SDK key.
+====
 
-Now that your application is running, go to your environment in *Feature management* to display the flags available in the example application:
+. <<reopen-project, Reopen the project>> in your IDE.
 
+. Add the SDK key to the application:
+.. Open the `application.yaml` file:
++
+[source]
+----
+src/main/resources/application.yaml
+----
+.. Locate the following placeholder in the file, and replace it with your SDK key:
++
+[source,yaml,subs=+quotes]
+----
+key: "<Your CloudBees SDK key>"
+----
+
+. Save the updated file.
+. Run the application in your IDE. For example:
++
+[source,shell]
+----
+./gradlew bootRun
+----
+
+. To view the application running, go to http://localhost:8080/api/demo in your web browser.
+
+== View the imported flags
+
+Now that your application is running:
+
+. In {PRODUCT}, select menu:Feature management[].
+. Select your example application to display the available flags as shown in the table below.
++
+[#flag-list]
 [cols="1a,1a,4a",options="header"]
-.Feature flags in the example application.
+.Feature flags in the example application
 |===
-
 | Flag name
 | Flag type
 | Description
@@ -81,27 +84,49 @@ Now that your application is running, go to your environment in *Feature managem
 
 | `fontSize`
 | Number
-| Sets the font size in pixels.
-The flag value has the following variations: `12`, `16`, or `24`.
+| Sets the message font size in pixels. The flag value has the following variations: `12`, `16`, or `24`.
 
-| `fontColor`
-| String
-| Sets the font color. The flag value has the following variations: `red`, `green`, or `blue`.
-
+| `fontColor` | String | Sets the message font color. The flag value has the following variations: `red`, `green`, or `blue`.
 |===
++
+[NOTE]
+====
+If no flags are displayed, verify that the environment-specific SDK key is correctly added to the project file:
+    `src/main/resources/application.yaml`
 
-NOTE: If no flags are displayed, check that the environment-specific SDK key is <<add-key,correctly added to the example application>>.
+Save the file, and restart the application.
+====
 
-To update flags in the platform UI:
+== Apply changes to flags in the UI
 
-. Select *Feature management* from the left pane.
-. Select the vertical ellipsis icon next to the flag you want to configure.
+. Select menu:Feature management[].
+. Select the application.
+. Select image:ROOT:icon-vertical-ellipsis-dark.png[Vertical ellipsis] next to the flag you want to configure.
 . Select *Configure*.
-. Select the *Environment* you used for copying the SDK key.
+. Select the *Environment*.
 . Update a flag value and save your changes.
-. Switch the *Configuration status* to *On*.
+. Set the btn:[Configuration status] to btn:[On].
+. The updated flag value is reflected in the application display shortly.
 
-The updated flag value is soon reflected in the display of the application.
-For more information on setting flag values, refer to the link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/feature-management/configure-feature-flags[flag configuration documentation].
+== Use the application with multiple SDK keys
+
+Run multiple instances of the SDK in a single application, each with its own SDK key and environment.
+Each instance is fully isolated.
+Use this when you need to read or compare flags across environments without redeploying, support multi-tenant routing, or combine server-side and client-side evaluations in one application.
+
+To use multiple SDK keys in the example Spring Boot application, follow these steps:
+
+. Retrieve the SDK keys for the environments you’ll use.
+. Initialize a separate SDK instance for each key.
+. Decide how to route requests to instances (for example, by tenant, region, or environment selector).
+. Perform register/fetch/stream setup on each instance as required by your SDK.
+. Evaluate flags using the selected instance. Pass a consistent user/context object for accurate targeting.
+. Tag logs or metrics by instance, and shut down instances you no longer need.
+
+== Documentation reference
+
+For more information about using multiple SDK keys, refer to xref:cloudbees-platform:feature-management:use-multiple-sdk-keys.adoc[].
+
+For installation details, refer to xref:cloudbees-platform:install-sdk:index.adoc[].
 
 
