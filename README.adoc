@@ -21,14 +21,14 @@ You will revisit this project in your IDE later to run the application.
 . Locate and copy the SDK key:
 .. Navigate to menu:Feature management[Flags].
 .. Select an application.
-.. Select image:ROOT:icon-copy-dark.png[COPY] next to the SDK key on the page.
+.. Select [COPY] next to the SDK key on the page.
 +
 [NOTE]
 ====
 If no SDK key is available:
 
 . Navigate to menu:Feature management[Flags].
-. Select image:ROOT:installinstructions.png[install,100] in the upper-right corner.
+. Select [Install instructions] in the upper-right corner.
 . Follow the installation instructions to complete the installation. The SDK key will appear once an application is linked to an environment.
 . Close the installation instructions, and copy the SDK key.
 ====
@@ -101,7 +101,7 @@ Save the file, and restart the application.
 
 . Select menu:Feature management[].
 . Select the application.
-. Select image:ROOT:icon-vertical-ellipsis-dark.png[Vertical ellipsis] next to the flag you want to configure.
+. Select the [Vertical ellipsis] next to the flag you want to configure.
 . Select *Configure*.
 . Select the *Environment*.
 . Update a flag value and save your changes.
