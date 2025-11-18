@@ -31,7 +31,7 @@ If no SDK key is available:
 . Close the installation instructions, and copy the SDK key.
 ====
 
-. In your IDE, select File and open the cloned repository as a Gradle project. You will revisit this project in your IDE later to run the application.
+. In your IDE, select *File* and open the cloned repository as a Gradle project. You will revisit this project in your IDE later to run the application.
 . Add the SDK key to the application:
 .. Open the `application.yaml` file:
 +
