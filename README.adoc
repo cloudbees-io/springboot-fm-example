@@ -125,8 +125,8 @@ To use multiple SDK keys in the example Spring Boot application, follow these st
 
 == Documentation reference
 
-For more information about using multiple SDK keys, refer to link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/feature-management/use-multiple-sdk-keys
+For more information about using multiple SDK keys, refer to link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/feature-management/use-multiple-sdk-keys[Use multiple SDK keys].
 
-For installation details, refer to link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/install-sdk/
+For installation details, refer to link:https://docs.cloudbees.com/docs/cloudbees-platform/latest/install-sdk/[Install the SDK].
 
 
